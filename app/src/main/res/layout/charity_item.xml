@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"></ImageView>
+
+
+    <TextView
+        android:id="@+id/txt_charity_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/img_logo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"></TextView>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0.1dp"
+        android:layout_below="@+id/img_logo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorPrimary"></View>
+
+</RelativeLayout>
