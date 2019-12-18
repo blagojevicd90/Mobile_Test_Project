@@ -11,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.mobiletestproject.Adapter.CharityAdapter;
+import com.example.mobiletestproject.Helper.RecyclerTouchListener;
 import com.example.mobiletestproject.Model.CharityModel;
 import com.example.mobiletestproject.Retrofit.RetrofitClient;
 import com.example.mobiletestproject.Retrofit.omiseApi;
 import com.google.android.material.snackbar.Snackbar;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progress_bar;
     private RecyclerView recyclerView;
     private ImageView img_error;
+    private List<CharityModel> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
+        mList = new ArrayList<>();
         retrofit = RetrofitClient.getInstance();
         compositeDisposable = new CompositeDisposable();
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -56,10 +60,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
-    private void displayCharityList(List<CharityModel> mList) {
+    private void displayCharityList(List<CharityModel> list) {
+        mList.addAll(list);
         progress_bar.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
-        CharityAdapter charityAdapter = new CharityAdapter(getApplicationContext(), mList);
+        CharityAdapter charityAdapter = new CharityAdapter(getApplicationContext(), list);
         recyclerView.setAdapter(charityAdapter);
     }
 
@@ -101,5 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 loadCharityList();
             }
         });
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }));
     }
 }
