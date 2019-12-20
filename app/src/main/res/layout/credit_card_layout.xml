@@ -10,11 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize">
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_button_back"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp">
+        </ImageButton>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/img_button_back"
             android:text="@string/credit_card"
             android:textColor="@color/black"
             android:textSize="18sp"></TextView>
@@ -196,19 +206,6 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/small_margin"
                         android:imeOptions="actionDone" />
-
-                    <ImageButton
-                        android:id="@id/button_security_code_tooltip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/edit_security_code"
-                        android:layout_alignBottom="@id/edit_security_code"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginEnd="@dimen/tooltip_end_margin"
-                        android:layout_marginRight="@dimen/tooltip_end_margin"
-                        android:background="@null"
-                        android:src="@drawable/ic_tooltip" />
 
                     <TextView
                         android:id="@id/text_security_code_error"
