@@ -3,4 +3,5 @@
     <string name="charity_list">Charity List</string>
     <string name="server_down">Server is currently shut down, please try again later</string>
     <string name="try_again">Try again</string>
+    <string name="api_key">pkey_test_5i8mbsuq98vytzgdhom</string>
 </resources>

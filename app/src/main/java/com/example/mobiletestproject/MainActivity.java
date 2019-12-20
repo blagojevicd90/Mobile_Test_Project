@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -110,12 +111,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                creditCardScreen();
             }
 
             @Override
             public void onLongClick(View view, int position) {
             }
         }));
+    }
+
+    private void creditCardScreen(){
+        Intent intent = new Intent(this, CreditCardActivity.class);
+        startActivity(intent);
     }
 }
