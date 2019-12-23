@@ -10,4 +10,6 @@
     <string name="error">Authentication failure</string>
     <string name="donation_text">Thanks for donation</string>
     <string name="button_back">Dismiss</string>
+    <string name="amount_in_thb">Amount in THB</string>
+    <string name="greater_donation">Donation must be greater then 20$</string>
 </resources>

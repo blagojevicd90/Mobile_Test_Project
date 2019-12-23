@@ -38,7 +38,7 @@ import retrofit2.Retrofit;
 public class CreditCardActivity extends AppCompatActivity {
 
     private EditText edit_card_number, edit_card_name, edit_city_name, edit_postal_code,
-            edit_expiry_date, edit_security_code;
+            edit_expiry_date, edit_security_code, edit_amount_in_thb;
     private Button button_submit;
     private ImageButton img_button_back;
     private CompositeDisposable compositeDisposable;
@@ -60,6 +60,7 @@ public class CreditCardActivity extends AppCompatActivity {
     private void initComponents() {
         img_button_back = (ImageButton) findViewById(R.id.img_button_back);
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
+        edit_amount_in_thb = (EditText) findViewById(R.id.edit_amount_in_thb);
         txt_donation = (TextView) findViewById(R.id.txt_donation);
         scrollview = (ScrollView) findViewById(R.id.scrollview);
         btn_back = (Button) findViewById(R.id.btn_back);
@@ -98,7 +99,7 @@ public class CreditCardActivity extends AppCompatActivity {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("name", edit_card_name.getText().toString());
         jsonObject.addProperty("token", token);
-        jsonObject.addProperty("amount", 10000);
+        jsonObject.addProperty("amount", Integer.parseInt(edit_amount_in_thb.getText().toString()));
 
         compositeDisposable.add(mService.getDonations(jsonObject)
                 .subscribeOn(Schedulers.io())
@@ -111,7 +112,7 @@ public class CreditCardActivity extends AppCompatActivity {
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        Snackbar.make(button_submit, getResources().getString(R.string.error), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(button_submit, getResources().getString(R.string.greater_donation), Snackbar.LENGTH_LONG).show();
                         resetVisibilityOnError();
                     }
                 }));

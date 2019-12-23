@@ -113,7 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_margin"
-                android:nextFocusForward="@id/spinner_expiry_month"></co.omise.android.ui.CardNameEditText>
+                android:nextFocusForward="@id/edit_amount_in_thb">
+
+            </co.omise.android.ui.CardNameEditText>
 
             <TextView
                 android:id="@id/text_card_name_error"
@@ -122,6 +124,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/xsmall_margin"
                 tools:text="Invalid input" />
+
+            <TextView
+                android:id="@+id/txt_amount"
+                style="?attr/editTextLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_separator_margin"
+                android:text="@string/amount_in_thb"></TextView>
+
+            <co.omise.android.ui.OmiseEditText
+                android:id="@+id/edit_amount_in_thb"
+                style="?android:attr/editTextStyle"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:nextFocusForward="@id/spinner_expiry_month">
+
+            </co.omise.android.ui.OmiseEditText>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
